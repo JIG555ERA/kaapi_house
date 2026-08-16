@@ -20,7 +20,7 @@ const SectionHeading = ({ eyebrow, title, copy }) => (
 
 const FoodCard = ({ item, index }) => (
   <StaggerItem className={`food-card food-card--${index + 1}`}><article>
-    <div className="food-card__media"><img src={item.image} alt={`${item.name} served at a warm cafe table`} loading="lazy" /><span>{item.tag}</span></div>
+    <div className="food-card__media"><img src={item.image} alt={item.alt} loading="lazy" style={{ objectFit: item.fit || 'cover', objectPosition: item.position }} /><span>{item.tag}</span></div>
     <div className="food-card__body"><span>0{index + 1}</span><div><h3>{item.name}</h3><p>{item.note}</p></div><ArrowUpRight size={20} /></div>
   </article></StaggerItem>
 )
@@ -56,7 +56,7 @@ const HomePage = () => {
         </StaggerGroup></section>
 
         <section className="story section" id="story" aria-labelledby="story-title"><div className="shell story__grid">
-          <Reveal className="story__visual"><div className="story__image-wrap"><img src={instagramImages[0].src} alt="Traditional South Indian breakfast presented with warmth" loading="lazy" /><span className="story__stamp"><BrandMark compact /><small>Made with warmth</small></span></div><span className="story__line" /></Reveal>
+          <Reveal className="story__visual"><div className="story__image-wrap"><img src={instagramImages[0].src} alt={instagramImages[0].alt} loading="lazy" /><span className="story__stamp"><BrandMark compact /><small>Made with warmth</small></span></div><span className="story__line" /></Reveal>
           <div className="story__content"><p className="eyebrow">Our story · Familiar by design</p><h2 id="story-title">A familiar taste, <em>served with heart.</em></h2><p>Kaapi House was created around a simple idea: everyday food should feel fresh, comforting and welcoming. Familiar recipes, traditional flavours and warm hospitality come together to offer a genuine taste of home.</p><div className="story__words"><span>Fresh</span><span>Familiar</span><span>Made with warmth</span></div><SecondaryButton href="#experience">Discover the experience</SecondaryButton></div>
         </div></section>
 
